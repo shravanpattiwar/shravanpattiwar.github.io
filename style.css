@@ -2032,5 +2032,5 @@
 /* Reduce dark overlay on header background */
 .head-bg:after,
 .head-bg:before {
-    background: rgba(0, 0, 0, 0.15) !important;
+    background: rgba(0, 0, 0, 0.7) !important;
 }
