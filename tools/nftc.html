@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network File Transfer Time Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .result-container {
+            align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .download-time-item {
+            flex-basis: 45%;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 576px) {
+            .download-time-item {
+                flex-basis: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>N F T C</h1>
+        <h2 align="center">Network File transfer Time Calculator</h2>
+        <form>
+            <div class="form-group">
+                <label for="fileSize">File Size:</label>
+                <input type="number" class="form-control" id="fileSize" required>
+                <select class="form-control" id="fileSizeUnit">
+                    <option value="Bit">Bit</option>
+                    <option value="Byte">Byte</option>
+                    <option value="Kilobit">Kilobit (Kb)</option>
+                    <option value="KiloByte">KiloByte (KB)</option>
+                    <option value="Megabit">Megabit (Mb)</option>
+                    <option value="MegaByte">MegaByte (MB)</option>
+                    <option value="Gigabit">Gigabit (Gb)</option>
+                    <option value="GigaByte">GigaByte (GB)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="lossPercentage">Loss Percentage:</label>
+                <input type="number" class="form-control" id="lossPercentage" required>
+            </div>
+
+            <div class="form-group">
+                <label for="delay">Delay (milliseconds):</label>
+                <input type="number" class="form-control" id="delay" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bandwidth">Bandwidth:</label>
+                <input type="number" class="form-control" id="bandwidth" required>
+                <select class="form-control" id="bandwidthUnit">
+                    <option value="Bit/s">Bit/s (bps)</option>
+                    <option value="Kbps">Kilobit/s (Kbps)</option>
+                    <option value="Mbps">Megabit/s (Mbps)</option>
+                    <option value="Gbps">Gigabit/s (Gbps)</option>
+                    <option value="Byte/s">Byte/s (B/s)</option>
+                    <option value="KBps">KiloByte/s (KB/s)</option>
+                    <option value="MBps">MegaByte/s (MB/s)</option>
+                    <option value="GBps">GigaByte/s (GB/s)</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+        </form>
+
+        <div class="result-container" align="center">
+            <div class="download-time-item">
+                <h4>Download Time</h4>
+                <p>Seconds: <span id="downloadTimeSeconds">0</span></p>
+                <p>Milliseconds: <span id="downloadTimeMilliseconds">0</span></p>
+                <p>Microseconds: <span id="downloadTimeMicroseconds">0</span></p>
+                <p>Nanoseconds: <span id="downloadTimeNanoseconds">0</span></p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $('form').submit(function (e) {
+            e.preventDefault();
+            calculateDownloadTime();
+        });
+
+        function calculateDownloadTime() {
+            const fileSize = parseFloat($('#fileSize').val());
+            const fileSizeUnit = $('#fileSizeUnit').val();
+            const lossPercentage = parseFloat($('#lossPercentage').val());
+            const delay = parseFloat($('#delay').val());
+            const bandwidth = parseFloat($('#bandwidth').val());
+            const bandwidthUnit = $('#bandwidthUnit').val();
+
+            const fileSizeInBits = convertToBits(fileSize, fileSizeUnit);
+            const bandwidthInBitsPerSecond = convertBandwidthToBitsPerSecond(bandwidth, bandwidthUnit);
+
+            const downloadTimeInSeconds = (fileSizeInBits / (bandwidthInBitsPerSecond * (1 - lossPercentage / 100))) + (delay / 1000);
+            const downloadTimeInMilliseconds = downloadTimeInSeconds * 1000;
+            const downloadTimeInMicroseconds = downloadTimeInSeconds * 1000000;
+            const downloadTimeInNanoseconds = downloadTimeInSeconds * 1000000000;
+
+            $('#downloadTimeSeconds').text(downloadTimeInSeconds.toFixed(6));
+            $('#downloadTimeMilliseconds').text(downloadTimeInMilliseconds.toFixed(6));
+            $('#downloadTimeMicroseconds').text(downloadTimeInMicroseconds.toFixed(6));
+            $('#downloadTimeNanoseconds').text(downloadTimeInNanoseconds.toFixed(6));
+        }
+
+        function convertToBits(size, unit) {
+            switch (unit) {
+                case 'Bit':
+                    return size;
+                case 'Byte':
+                    return size * 8;
+                case 'Kilobit':
+                    return size * 1024;
+                case 'KiloByte':
+                    return size * 8 * 1024;
+                case 'Megabit':
+                    return size * 1024 * 1024;
+                case 'MegaByte':
+                    return size * 8 * 1024 * 1024;
+                case 'Gigabit':
+                    return size * 1024 * 1024 * 1024;
+                case 'GigaByte':
+                    return size * 8 * 1024 * 1024 * 1024;
+            }
+        }
+
+        function convertBandwidthToBitsPerSecond(bandwidth, unit) {
+            switch (unit) {
+                case 'Bit/s':
+                    return bandwidth;
+                case 'Kbps':
+                    return bandwidth * 1024;
+                case 'Mbps':
+                    return bandwidth * 1024 * 1024;
+                case 'Gbps':
+                    return bandwidth * 1024 * 1024 * 1024;
+                case 'Byte/s':
+                    return bandwidth * 8;
+                case 'KBps':
+                    return bandwidth * 8 * 1024;
+                case 'MBps':
+                    return bandwidth * 8 * 1024 * 1024;
+                case 'GBps':
+                    return bandwidth * 8 * 1024 * 1024 * 1024;
+            }
+        }
+    </script>
+</body>
+
+</html>
+

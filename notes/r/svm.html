@@ -1,0 +1,20 @@
+<a href="heart_tidy.csv">Click here to download heart_tidy Dataset</a>
+
+<hr>
+
+heart_df = read.csv("G:/R Programs/Datasets/heart_tidy.csv", sep = ',', header = FALSE) <br>
+set.seed(3033)<br>
+intrain =createDataPartition(y = heart_df$V14, p= 0.7, list = FALSE) <br>
+training = heart_df[intrain,]<br>
+testing =heart_df[-intrain,]<br>
+dim(training)<br>
+dim(testing)<br>
+anyNA(heart_df)<br>
+training[["V14"]] = factor(training[["V14"]])<br>
+trctrl = trainControl(method = "repeatedcv", number = 10, repeats = 3)<br>
+set.seed(3233)<br>
+svm_Linear = train(V14 ~., data = training, method = "svmLinear",trControl=trctrl,preProcess = c("center", "scale"),tuneLength = 10)<br>
+svm_Linear<br>
+test_pred = predict(svm_Linear, newdata = testing)<br>
+test_pred<br>
+confusionMatrix(table(test_pred, testing$V14) )<br>

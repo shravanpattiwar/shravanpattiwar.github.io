@@ -1,0 +1,18 @@
+<a href="movie_metadata.csv">Click here to download movie_metadataDataset</a>
+
+<hr>
+
+rm(list=ls(all=TRUE)) <br>
+movie_metadata=read.csv("G:/R Programs/Datasets/movie_metadata.csv")<br>
+dim(movie_metadata)<br>
+movie=data.matrix(movie_metadata)<br>
+movie<br>
+movie=na.omit(movie)<br>
+smple=movie[sample(nrow(movie),500),]<br>
+View(smple)<br>
+smple_short=smple[,c(9,23)]<br>
+View(smple_short)<br>
+smple_matrix=data.matrix(smple_short)<br>
+wss=(nrow(smple_matrix)-1)*sum(apply(smple_matrix,2,var))<br>
+for(i in 2:15) wss[i]=sum(kmeans(smple_matrix,centers=i)$withinss)<br>
+plot(1:15, wss, type="b",xlab="Number of Cluster", ylab="within sum of squares0")

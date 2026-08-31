@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>World Clock</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <style>
+        #clock {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .switch-arrows {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .switch-arrows span {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .switch-arrows .active {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">World Clock</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <select id="timezones" class="form-control select2" style="width: 100%;">
+                    <option value="Etc/UTC">Anywhere in the World (UTC)</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <div id="clock" class="text-center"></div>
+            </div>
+        </div>
+        <hr>
+        <h2 class="mb-3">Time Conversion</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <label for="convertFrom">Convert From:</label>
+                <select id="convertFrom" class="form-control select2" style="width: 100%;">
+                    <!-- Options will be dynamically added using JavaScript -->
+                </select>
+            </div>
+                       <div class="col-md-1 d-flex align-items-center">
+                <div class="switch-arrows">
+                    <span class="switch-arrow active">&#8660;</span>
+                </div>
+            </div>
+  
+            <div class="col-md-3">
+                <label for="convertTo">Convert To:</label>
+                <select id="convertTo" class="form-control select2" style="width: 100%;">
+                    <!-- Options will be dynamically added using JavaScript -->
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="timeInput">Enter Time:</label>
+                <input type="text" id="timeInput" class="form-control" placeholder="HH:mm:ss">
+            </div>
+            <div class="col-md-2">
+                <label>Converted Time:</label>
+                <div id="convertedTime" class="form-control"></div>        
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12 text-center mt-4">
+                <button class="time-format-switch btn btn-sm btn-outline-secondary" data-format="24">12Hr</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Function to update the clock time for the selected timezone
+            function updateTime() {
+                const timezone = $('#timezones').val();
+                const time = moment().tz(timezone).format('HH:mm:ss');
+                $('#clock').text(time);
+            }
+
+            // Update the clock time every second
+            setInterval(updateTime, 1000);
+            updateTime(); // Initial update
+
+            // Populate the time zone dropdown
+            moment.tz.names().forEach(function (tz) {
+                $('#timezones, #convertFrom, #convertTo').append($('<option>', {
+                    value: tz,
+                    text: tz.replace(/_/g, ' ')
+                }));
+            });
+
+            // Make dropdowns searchable using select2
+            $('.select2').select2();
+
+            // Function to convert time from one timezone to another
+            function convertTime() {
+                const fromTimezone = $('#convertFrom').val();
+                const toTimezone = $('#convertTo').val();
+                const timeInput = $('#timeInput').val();
+                let convertedTime = moment.tz(timeInput, 'HH:mm:ss', fromTimezone).tz(toTimezone).format('HH:mm:ss');
+
+                if ($('.switch-arrow').hasClass('active')) {
+                    convertedTime = moment(convertedTime, 'HH:mm:ss').format('hh:mm:ss A');
+                }
+
+                $('#convertedTime').text(convertedTime);
+            }
+
+            // Update the converted time whenever any input changes
+            $('#convertFrom, #convertTo, #timeInput').on('change keyup', convertTime);
+            convertTime(); // Initial conversion
+
+            // Function to switch between 24-hour and 12-hour formats
+            $('.time-format-switch').on('click', function () {
+                const format = $(this).data('format');
+                const convertedTime = $('#convertedTime').text();
+
+                if (format === '24') {
+                    const time24 = moment(convertedTime, 'hh:mm:ss A').format('HH:mm:ss');
+                    $(this).data('format', '12').text('24Hr');
+                    $('#convertedTime').text(time24);
+                } else {
+                    const time12 = moment(convertedTime, 'HH:mm:ss').format('hh:mm:ss A');
+                    $(this).data('format', '24').text('12Hr');
+                    $('#convertedTime').text(time12);
+                }
+            });
+
+            // Function to switch between convert from and convert to timezones
+            $('.switch-arrow').on('click', function () {
+                const convertFrom = $('#convertFrom').val();
+                const convertTo = $('#convertTo').val();
+
+                $('#convertFrom').val(convertTo).trigger('change');
+                $('#convertTo').val(convertFrom).trigger('change');
+
+                $('.switch-arrow').toggleClass('active');
+                convertTime();
+            });
+        });
+    </script>
+</body>
+</html>
+

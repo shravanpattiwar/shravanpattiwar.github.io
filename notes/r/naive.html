@@ -1,0 +1,12 @@
+
+<a href="Iris.csv">Click here to download Iris Dataset</a>
+
+<hr>
+
+iris=read.csv("E:/R/datasets/iris.csv")<br><br>
+data(iris) <br><br>
+iris$spl=sample.split(iris,SplitRatio=0.7)<br><br>
+train=subset(iris, iris$spl==TRUE)<br><br>
+test=subset(iris, iris$spl==FALSE)<br><br>
+nB_model <- naiveBayes(train[,1:4], train[,5])<br><br> 
+table(predict(nB_model, test[,-5]), test[,5])<br><br>

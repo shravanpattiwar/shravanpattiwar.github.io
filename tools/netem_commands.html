@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetEm Commands for Linux</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            color: #007BFF;
+        }
+        pre {
+            background-color: #eee;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .description {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shravan Kumar Pattiwar Netem Lab<h1>
+    <h2>NetEm Commands for Linux</h2>
+
+    <h2>1. Adding Delay</h2>
+    <pre>sudo tc qdisc add dev eth0 root netem delay 100ms</pre>
+    <div class="description">Adds a delay of 100 milliseconds (ms) to the network interface.</div>
+
+    <h2>2. Changing Delay</h2>
+    <pre>sudo tc qdisc change dev eth0 root netem delay 200ms</pre>
+    <div class="description">Changes the existing delay to 200 ms.</div>
+
+    <h2>3. Removing Delay</h2>
+    <pre>sudo tc qdisc del dev eth0 root</pre>
+    <div class="description">Removes the added delay (along with any other NetEm settings).</div>
+
+    <h2>Additional Options</h2>
+
+    <h3>Add Variability to Delay</h3>
+    <pre>sudo tc qdisc add dev eth0 root netem delay 100ms 50ms</pre>
+    <div class="description">Adds a base delay of 100 ms with a maximum variation of 50 ms.</div>
+
+    <h3>Add Packet Loss</h3>
+    <pre>sudo tc qdisc add dev eth0 root netem delay 100ms loss 10%</pre>
+    <div class="description">Simulates packet loss along with delay.</div>
+
+    <h3>Adding Bandwidth Limit</h3>
+    <pre>sudo tc qdisc add dev eth0 root tbf rate 1mbit burst 32kbit latency 400ms</pre>
+    <div class="description">Limits the bandwidth to 1 Mbit/s with a burst of 32 kbit and 400 ms latency.</div>
+
+    <h3>Check Current Configuration</h3>
+    <pre>sudo tc -s qdisc show dev eth0</pre>
+    <div class="description">Views the current qdisc settings on the specified interface.</div>
+
+    <h3>Find Network Interfaces</h3>
+    <pre>ip link show</pre>
+    <div class="description">Lists all network interfaces on your system.</div>
+            
+    <h3>Show network condition</h3>
+    <pre>sudo tc qdisc show dev eth0</pre>
+    <div class="description">Show network condition applied on interface.</div>
+
+
+    <h3>Adding Duplicate Packets</h3>
+    <pre>sudo tc qdisc add dev eth0 root netem duplicate 10%</pre>
+    <div class="description">Duplicates 10% of the packets sent through the network interface.</div>
+
+    <h3>Reordering Packets</h3>
+    <pre>sudo tc qdisc add dev eth0 root netem reorder 10% 50%</pre>
+    <div class="description">Reorders 10% of packets with a 50% chance of being out of order.</div>
+</body>
+</html>

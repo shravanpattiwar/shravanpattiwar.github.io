@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iperf Commands for Network Testing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            color: #007BFF;
+        }
+        pre {
+            background-color: #eee;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .description {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shravan Kumar Pattiwar Network Lab</h1>
+    <h2>iperf Commands for Network Testing</h2>
+
+    <h2>Installation Commands</h2>
+    <pre>sudo apt update</pre>
+    <pre>sudo apt install iperf3</pre>
+    <div class="description">Install iperf3 on a Debian-based system.</div>
+    <pre>brew install iperf3</pre>
+    <div class="description">Install iperf3 using Homebrew on macOS.</div>
+    <pre>yum install iperf3</pre>
+    <div class="description">Install iperf3 on a Red Hat-based system.</div>
+
+    <h2>1. Basic Server Mode</h2>
+    <pre>iperf3 -s</pre>
+    <div class="description">Starts the iperf server, listening for incoming connections.</div>
+
+    <h2>2. Basic Client Mode</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt;</pre>
+    <div class="description">Connects to the iperf server to measure network performance.</div>
+
+    <h2>3. Run Test for a Specified Duration</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -t 30</pre>
+    <div class="description">Runs the test for 30 seconds instead of the default 10 seconds.</div>
+
+    <h2>4. Use UDP Instead of TCP</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -u</pre>
+    <div class="description">Switches the test to use UDP protocol.</div>
+
+    <h2>5. Set Bandwidth for UDP Tests</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -u -b 10M</pre>
+    <div class="description">Sets the bandwidth for the UDP test to 10 Mbps.</div>
+
+    <h2>6. Run Multiple Parallel Streams</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -P 5</pre>
+    <div class="description">Runs the test with 5 parallel client streams.</div>
+
+    <h2>7. Reverse Mode Test</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -R</pre>
+    <div class="description">Runs the test in reverse mode, where the server sends data to the client.</div>
+
+    <h2>8. Display Bandwidth in Bits Per Second</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -f b</pre>
+    <div class="description">Displays the bandwidth in bits per second.</div>
+
+    <h2>9. Set Specific Port</h2>
+    <pre>iperf3 -s -p 5201</pre>
+    <div class="description">Runs the server on port 5201 instead of the default.</div>
+
+    <h2>10. Show Detailed Statistics</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -V</pre>
+    <div class="description">Displays detailed statistics for the test.</div>
+
+    <h2>11. Test with TCP Window Size</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -w 512K</pre>
+    <div class="description">Sets the TCP window size to 512 KB for the test.</div>
+
+    <h2>12. Set Time Interval for Reporting</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -i 5</pre>
+    <div class="description">Sets the interval for reporting bandwidth, default is 1 second.</div>
+
+    <h2>13. JSON Output Format</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -J</pre>
+    <div class="description">Outputs results in JSON format, useful for parsing by scripts.</div>
+
+    <h2>14. Specify Number of Streams</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -P 10</pre>
+    <div class="description">Runs the test with 10 parallel streams, increasing total throughput.</div>
+
+    <h2>15. Use IPv6</h2>
+    <pre>iperf3 -c &lt;server_ip_address&gt; -6</pre>
+    <div class="description">Runs the test using IPv6 addresses.</div>
+    <div class="container">
+        <h2>iperf UDP Extra Commands</h2>
+        <p>This guide will help you understand how to send a specific amount of data (in MB) using <code>iperf</code> over UDP. The goal is to specify the total data size to be transmitted, rather than using the time-based condition.</p>
+        
+        <h2>Basic Syntax</h2>
+        <p>To send a specified amount of data using UDP in <code>iperf</code>, the following command can be used:</p>
+        <pre><code>iperf -c &lt;server_ip&gt; -u -b &lt;bandwidth&gt; -n &lt;data_size&gt;</code></pre>
+        
+        <h2>Command Breakdown</h2>
+        <ul>
+            <li><code>-c &lt;server_ip&gt;</code>: Specifies the client mode and the server's IP address.</li>
+            <li><code>-u</code>: Indicates that UDP should be used (instead of TCP).</li>
+            <li><code>-b &lt;bandwidth&gt;</code>: Specifies the bandwidth for the UDP test (e.g., <code>10M</code> for 10 Mbps).</li>
+            <li><code>-n &lt;data_size&gt;</code>: Specifies the total amount of data to send. The data size can be in KB, MB, or GB (e.g., <code>10M</code> for 10 MB).</li>
+        </ul>
+        
+        <h2>Examples</h2>
+        
+        <div class="example">
+            <h3>Example 1: Send 50 MB of UDP Data</h3>
+            <p>In this example, the client sends 50 MB of data to the server at an IP address of <code>192.168.1.1</code> with a bandwidth of 10 Mbps:</p>
+            <pre><code>iperf -c 192.168.1.1 -u -b 10M -n 50M</code></pre>
+        </div>
+        
+        <div class="example">
+            <h3>Example 2: Send 100 MB of UDP Data</h3>
+            <p>To send 100 MB of data at 20 Mbps, the command would look like this:</p>
+            <pre><code>iperf -c 192.168.1.1 -u -b 20M -n 100M</code></pre>
+        </div>
+
+       <h2>Important Notes</h2>
+        <ul>
+            <li>If you do not specify the bandwidth with <code>-b</code>, <code>iperf</code> will send at the maximum available bandwidth.</li>
+            <li>You can specify data sizes using the appropriate suffixes: <code>K</code> for KB, <code>M</code> for MB, and <code>G</code> for GB.</li>
+        </ul>
+    </div>
+</body>
+</html>

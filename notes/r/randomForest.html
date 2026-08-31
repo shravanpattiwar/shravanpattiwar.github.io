@@ -1,0 +1,22 @@
+<a href="diabetes.csv">Click here to download diabet Dataset</a>
+
+<hr>
+
+diabet=read.csv("G:/R Programs/Datasets/diabetes.csv")<br>
+View(diabet)<br>
+set.seed(2)<br>
+id=sample(2,nrow(diabet),prob=c(0.7,0.3),replace=TRUE)<br>
+diabet_train=diabet[id==1,]<br>
+diabet_test=diabet[id==2,]<br>
+View(diabet_test)<br>
+diabet$Outcome=as.factor(diabet$Outcome)<br>
+diabet_train$Outcome=as.factor(diabet_train$Outcome)<br>
+bestmtry=tuneRF(diabet_train,diabet_train$Outcome,stepFactor=1.2, improve=0.01,trace= T,plot=T)<br>
+diabet_forest=randomForest(Outcome~.,data=diabet_train)<br>
+diabet_forest<br>
+importance(diabet_forest)<br>
+varImpPlot(diabet_forest)<br>
+predi_diabet=predict(diabet_forest,newdata=diabet_test,type="class")<br>
+predi_diabet<br><br>
+confusionMatrix(table(predi_diabet,diabet_test$Outcome))<br>
+

@@ -1,0 +1,26 @@
+
+<a href="student_placementdata.csv">Click here to download student_placementdata Dataset</a>
+
+<hr>
+
+datas=read.csv("E:/R/datasets/student_placementdata.csv")<br>
+TKS=datas$TKS<br>
+CSS=datas$CSS<br>
+Placed=datas$Placed<br>
+View(datas)<br>
+
+df=data.frame(TKS,CSS,Placed)<br>
+require(neuralnet)<br>
+
+nn=neuralnet(Placed~TKS+CSS,data=df, hidden=3,act.fct = "logistic",linear.output = FALSE)<br>
+
+plot(nn)<br>
+
+TKS=c(30,40,85)<br>
+CSS=c(85,50,40)<br>
+test=data.frame(TKS,CSS)<br>
+Predict=compute(nn,test)<br>
+Predict$net.result<br>
+prob <- Predict$net.result<br>
+pred <- ifelse(prob>0.5, 1, 0)<br>
+pred<br>

@@ -1,0 +1,21 @@
+<a href="diabetes.csv">Click here to download diabet Dataset</a>
+
+<hr>
+
+diabet=read.csv("G:/R Programs/Datasets/diabetes.csv")<br>
+View(diabet)<br>
+set.seed(2)<br>
+id=sample(2,nrow(diabet),prob=c(0.7,0.3),replace=TRUE)<br>
+diabet_train=diabet[id==1,]<br>
+diabet_test=diabet[id==2,]<br>
+
+Outcome=as.factor(diabet$Outcome)<br>
+
+colnames(diabet)<br>
+diabet_model=rpart(Outcome~.,data=diabet_train)<br>
+diabet_model<br>
+plot(diabet_model,margin=0.1)<br>
+text(diabet_model,use.n=TRUE,pretty=TRUE,cex=0.8)<br>
+pred_diabet=predict(diabet_model,newdata=diabet_test,type="vector")<br>
+pred_diabet<br>
+summary(diabet_model)<br>
