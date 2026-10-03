@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RokokoHand-44 Dataset</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            HAND MOTION DATASET
+        </div>
+
+        <h1>RokokoHand-44</h1>
+
+        <p class="subtitle">
+            A Large-Scale Hand Motion Dataset for Motion Forecasting,
+            Teleoperation, Delay Compensation and Dexterous Manipulation
+        </p>
+
+        <div class="buttons">
+
+            <a href="#overview">Overview</a>
+
+            <a href="#protocol">Protocol</a>
+
+            <a href="#download">Download</a>
+
+            <a href="#citation">Citation</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     OVERVIEW
+===================================================== -->
+
+<section id="overview" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            DATASET
+        </span>
+
+        <h2>Dataset Overview</h2>
+
+    </div>
+
+    <p class="section-intro">
+
+        RokokoHand-44 is a high-frequency hand motion dataset
+        collected using the Rokoko Smartglove. The dataset is designed
+        for future motion prediction, teleoperation, robotic
+        manipulation, delay compensation, reinforcement learning,
+        and dexterous control.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            AT A GLANCE
+        </span>
+
+        <h2>Dataset Statistics</h2>
+
+    </div>
+
+
+    <div class="stats-grid">
+
+        <div class="card">
+
+            <div class="stat-icon">
+                44
+            </div>
+
+            <h3>44</h3>
+
+            <p>Tasks</p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="stat-icon">
+                08
+            </div>
+
+            <h3>8</h3>
+
+            <p>Categories</p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="stat-icon">
+                Hz
+            </div>
+
+            <h3>100 Hz</h3>
+
+            <p>Sampling Rate</p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="stat-icon">
+                R
+            </div>
+
+            <h3>Rokoko</h3>
+
+            <p>Smartglove</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DATASET PROTOCOL
+===================================================== -->
+
+<section id="protocol" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            PROTOCOL
+        </span>
+
+        <h2>Dataset Protocol</h2>
+
+        <p>
+            Overview of the motion categories included in
+            RokokoHand-44.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         PROTOCOL IMAGE GALLERY
+    ================================================= -->
+
+    <div class="gallery">
+
+
+        <div class="gallery-item">
+
+            <div class="gallery-image">
+
+                <img
+                    src="images/P1 to P6.png"
+                    class="zoomable"
+                    onclick="openLightbox(this.src)"
+                    alt="Static poses P1 to P6"
+                >
+
+                <span class="image-badge">
+                    P1–P5
+                </span>
+
+            </div>
+
+            <div class="gallery-content">
+
+                <h3>Static Poses</h3>
+
+                <p>
+                    Open Hand, Fist, Point, Pinch, Thumbs Up
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <div class="gallery-image">
+
+                <img
+                    src="images/T1 to T8.png"
+                    class="zoomable"
+                    onclick="openLightbox(this.src)"
+                    alt="Pose transitions T1 to T8"
+                >
+
+                <span class="image-badge">
+                    T1–T8
+                </span>
+
+            </div>
+
+            <div class="gallery-content">
+
+                <h3>Pose Transitions</h3>
+
+                <p>
+                    Motion forecasting transitions
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <div class="gallery-image">
+
+                <img
+                    src="images/W1 to W6.png"
+                    class="zoomable"
+                    onclick="openLightbox(this.src)"
+                    alt="Wrist motions W1 to W6"
+                >
+
+                <span class="image-badge">
+                    W1–W6
+                </span>
+
+            </div>
+
+            <div class="gallery-content">
+
+                <h3>Wrist Motions</h3>
+
+                <p>
+                    Flexion, Extension, Deviations, Rotation
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <div class="gallery-image">
+
+                <img
+                    src="images/D1 to D5.png"
+                    class="zoomable"
+                    onclick="openLightbox(this.src)"
+                    alt="Finger dexterity D1 to D5"
+                >
+
+                <span class="image-badge">
+                    D1–D5
+                </span>
+
+            </div>
+
+            <div class="gallery-content">
+
+                <h3>Finger Dexterity</h3>
+
+                <p>
+                    Fine finger control tasks
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <div class="gallery-image">
+
+                <img
+                    src="images/R1 to R4.png"
+                    class="zoomable"
+                    onclick="openLightbox(this.src)"
+                    alt="Reach motions R1 to R4"
+                >
+
+                <span class="image-badge">
+                    R1–R4
+                </span>
+
+            </div>
+
+            <div class="gallery-content">
+
+                <h3>Reach Motions</h3>
+
+                <p>
+                    Forward, Left, Right, Up
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <div class="gallery-image">
+
+                <img
+                    src="images/G1 to G6.png"
+                    class="zoomable"
+                    onclick="openLightbox(this.src)"
+                    alt="Grasp taxonomy G1 to G6"
+                >
+
+                <span class="image-badge">
+                    G1–G6
+                </span>
+
+            </div>
+
+            <div class="gallery-content">
+
+                <h3>Grasp Taxonomy</h3>
+
+                <p>
+                    Cube, Ball, Bottle, Mug, Pen, Smartphone
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <div class="gallery-image">
+
+                <img
+                    src="images/M1 to M6.png"
+                    class="zoomable"
+                    onclick="openLightbox(this.src)"
+                    alt="Manipulation tasks M1 to M6"
+                >
+
+                <span class="image-badge">
+                    M1–M6
+                </span>
+
+            </div>
+
+            <div class="gallery-content">
+
+                <h3>Manipulation Tasks</h3>
+
+                <p>
+                    Pick & Place, Rotate, Stack, Insert
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <div class="gallery-image">
+
+                <img
+                    src="images/C1 to C4.png"
+                    class="zoomable"
+                    onclick="openLightbox(this.src)"
+                    alt="Continuous motion C1 to C4"
+                >
+
+                <span class="image-badge">
+                    C1–C4
+                </span>
+
+            </div>
+
+            <div class="gallery-content">
+
+                <h3>Continuous Motion</h3>
+
+                <p>
+                    Long horizon forecasting sequences
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         GIF MOTION DEMONSTRATIONS
+    ================================================= -->
+
+    <div class="gif-section">
+
+
+        <div class="gif-section-heading">
+
+            <span class="section-label">
+                MOTION DEMONSTRATIONS
+            </span>
+
+            <h2>Hand Motion Examples</h2>
+
+            <p>
+                Representative motion sequences from the dataset.
+                Click any GIF to view it in full screen.
+            </p>
+
+        </div>
+
+
+        <!-- =============================================
+             GROUP 01
+        ============================================== -->
+
+        <div class="gif-group">
+
+
+            <div class="gif-group-header">
+
+                <div>
+
+                    <span class="group-tag">
+                        GROUP 01
+                    </span>
+
+                    <h3>
+                        Fine Manipulation & Precision
+                    </h3>
+
+                    <p>
+                        Fine-grained hand activities requiring precise finger coordination, fingertip control, precision grasping, and small-scale object manipulation.
+                    </p>
+
+                </div>
+
+
+                <span class="gif-count">
+                    5 Motions
+                </span>
+
+            </div>
+
+
+            <div class="gif-grid">
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/calender1.gif"
+                            alt="Calendar motion"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>01</span>
+
+                        <strong>
+                            Flip a Table Calendar
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/cardpack1.gif"
+                            alt="Take Cards from a Pack"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>02</span>
+
+                        <strong>
+                            Take Cards from a Pack
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/bulb1.gif"
+                            alt="Bulb motion"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>03</span>
+
+                        <strong>
+                            Write on Paper with a Pen
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/bottleCap1.gif"
+                            alt="Bottle cap motion"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>04</span>
+
+                        <strong>
+                            Open Pages of a Diary
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =============================================
+             GROUP 02
+        ============================================== -->
+
+        <div class="gif-group">
+
+
+            <div class="gif-group-header">
+
+                <div>
+
+                    <span class="group-tag">
+                        GROUP 02
+                    </span>
+
+                    <h3>
+                        Grasp, Lift & Transfer
+                    </h3>
+
+                    <p>
+                        Object-oriented activities involving grasp acquisition, lifting, holding, transferring, placing, and controlled release of everyday objects.
+                    </p>
+
+                </div>
+
+
+                <span class="gif-count">
+                    5 Motions
+                </span>
+
+            </div>
+
+
+            <div class="gif-grid">
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/cupHolding1.gif"
+                            alt="Lift and Place a Cup"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>01</span>
+
+                        <strong>
+                            Lift and Place a Cup
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/ball1.gif"
+                            alt="Throw, Catch and Place a Ball"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>02</span>
+
+                        <strong>
+                            Throw, Catch and Place a Ball
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/bulb1.gif"
+                            alt="Install, Switch and Remove a Bulb"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>03</span>
+
+                        <strong>
+                            Install, Switch and Remove a Bulb
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/glassPourStir1.gif"
+                            alt="Pour Water from Glass to Cup"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>04</span>
+
+                        <strong>
+                            Pour Water from Glass to Cup
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =============================================
+             GROUP 03
+        ============================================== -->
+
+        <div class="gif-group">
+
+
+            <div class="gif-group-header">
+
+                <div>
+
+                    <span class="group-tag">
+                        GROUP 03
+                    </span>
+
+                    <h3>
+                        Rotation & Tool Manipulation
+                    </h3>
+
+                    <p>
+                        Activities emphasizing wrist rotation, rotational control, repetitive hand movements, and coordinated interaction with tools and objects.
+                    </p>
+
+                </div>
+
+
+                <span class="gif-count">
+                    5 Motions
+                </span>
+
+            </div>
+
+
+            <div class="gif-grid">
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/bottleCap1.gif"
+                            alt="Open and Close a Metal Bottle Cap"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>01</span>
+
+                        <strong>
+                            Open and Close a Metal Bottle Cap
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/skrew1.gif"
+                            alt="Unscrew and Screw with a Screwdriver"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>02</span>
+
+                        <strong>
+                            Unscrew and Screw with a Screwdriver
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/stir1.gif"
+                            alt="Open and Close threaded pen"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>03</span>
+
+                        <strong>
+                            Open and Close threaded pen
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/stirling1.gif"
+                            alt="Stir with a Spoon"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>04</span>
+
+                        <strong>
+                            Stir with a Spoon
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =============================================
+             GROUP 04
+        ============================================== -->
+
+        <div class="gif-group">
+
+
+            <div class="gif-group-header">
+
+                <div>
+
+                    <span class="group-tag">
+                        GROUP 04
+                    </span>
+
+                    <h3>
+                        Pressing, Control & Dynamic Actions
+                    </h3>
+
+                    <p>
+                        Activities involving force application, button or mechanism interaction, rapid hand movements, and controlled dynamic actions.
+                    </p>
+
+                </div>
+
+
+                <span class="gif-count">
+                    5 Motions
+                </span>
+
+            </div>
+
+
+            <div class="gif-grid">
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/stapple1.gif"
+                            alt="Staple motion"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>05</span>
+
+                        <strong>
+                            Staple
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/Sanitizer1.gif"
+                            alt="Press a Sanitizer Pump"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>02</span>
+
+                        <strong>
+                            Press a Sanitizer Pump
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/remote1.gif"
+                            alt="Operate a Remote Controller"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>03</span>
+
+                        <strong>
+                            Operate a Remote Controller
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/cuttingPlayer1.gif"
+                            alt="Handling Cutting Player"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>04</span>
+
+                        <strong>
+                            Handling Cutting Player
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gif-card">
+
+                    <div class="gif-image">
+
+                        <img
+                            src="gifs/holePunch1.gif"
+                            alt="Use a Paper Hole Punch"
+                            onclick="openLightbox(this.src)"
+                        >
+
+                    </div>
+
+                    <div class="gif-card-info">
+
+                        <span>05</span>
+
+                        <strong>
+                            Use a Paper Hole Punch
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TASK SUMMARY
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            SUMMARY
+        </span>
+
+        <h2>Task Summary</h2>
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Category</th>
+                    <th>IDs</th>
+                    <th>Tasks</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Static Poses</td>
+                    <td>P1-P5</td>
+                    <td>5</td>
+                </tr>
+
+                <tr>
+                    <td>Pose Transitions</td>
+                    <td>T1-T8</td>
+                    <td>8</td>
+                </tr>
+
+                <tr>
+                    <td>Wrist Motions</td>
+                    <td>W1-W6</td>
+                    <td>6</td>
+                </tr>
+
+                <tr>
+                    <td>Finger Dexterity</td>
+                    <td>D1-D5</td>
+                    <td>5</td>
+                </tr>
+
+                <tr>
+                    <td>Reach Motions</td>
+                    <td>R1-R4</td>
+                    <td>4</td>
+                </tr>
+
+                <tr>
+                    <td>Grasp Taxonomy</td>
+                    <td>G1-G6</td>
+                    <td>6</td>
+                </tr>
+
+                <tr>
+                    <td>Manipulation</td>
+                    <td>M1-M6</td>
+                    <td>6</td>
+                </tr>
+
+                <tr>
+                    <td>Continuous Motion</td>
+                    <td>C1-C4</td>
+                    <td>4</td>
+                </tr>
+
+                <tr class="total-row">
+                    <th>Total</th>
+                    <th></th>
+                    <th>44</th>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TASKS IN DETAIL
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            REFERENCE
+        </span>
+
+        <h2>Tasks in Detail</h2>
+
+    </div>
+
+
+    <div class="accordion">
+
+
+        <!-- STATIC -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-header">
+
+                <span>
+                    Static Poses (P1-P5)
+                </span>
+
+                <span class="accordion-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <table>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Task</th>
+                    </tr>
+
+                    <tr>
+                        <td>P1</td>
+                        <td>Open Hand</td>
+                    </tr>
+
+                    <tr>
+                        <td>P2</td>
+                        <td>Fist</td>
+                    </tr>
+
+                    <tr>
+                        <td>P3</td>
+                        <td>Point</td>
+                    </tr>
+
+                    <tr>
+                        <td>P4</td>
+                        <td>Pinch</td>
+                    </tr>
+
+                    <tr>
+                        <td>P5</td>
+                        <td>Thumbs Up</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRANSITIONS -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-header">
+
+                <span>
+                    Pose Transitions (T1-T8)
+                </span>
+
+                <span class="accordion-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <table>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Task</th>
+                    </tr>
+
+                    <tr>
+                        <td>T1</td>
+                        <td>Open → Fist</td>
+                    </tr>
+
+                    <tr>
+                        <td>T2</td>
+                        <td>Fist → Open</td>
+                    </tr>
+
+                    <tr>
+                        <td>T3</td>
+                        <td>Open → Pinch</td>
+                    </tr>
+
+                    <tr>
+                        <td>T4</td>
+                        <td>Pinch → Open</td>
+                    </tr>
+
+                    <tr>
+                        <td>T5</td>
+                        <td>Point → Fist</td>
+                    </tr>
+
+                    <tr>
+                        <td>T6</td>
+                        <td>Fist → Point</td>
+                    </tr>
+
+                    <tr>
+                        <td>T7</td>
+                        <td>Open → Thumbs Up</td>
+                    </tr>
+
+                    <tr>
+                        <td>T8</td>
+                        <td>Thumbs Up → Open</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- WRIST -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-header">
+
+                <span>
+                    Wrist Motions (W1-W6)
+                </span>
+
+                <span class="accordion-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <table>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Task</th>
+                    </tr>
+
+                    <tr>
+                        <td>W1</td>
+                        <td>Wrist Flexion</td>
+                    </tr>
+
+                    <tr>
+                        <td>W2</td>
+                        <td>Wrist Extension</td>
+                    </tr>
+
+                    <tr>
+                        <td>W3</td>
+                        <td>Wrist Left Deviation</td>
+                    </tr>
+
+                    <tr>
+                        <td>W4</td>
+                        <td>Wrist Right Deviation</td>
+                    </tr>
+
+                    <tr>
+                        <td>W5</td>
+                        <td>Wrist Pronation</td>
+                    </tr>
+
+                    <tr>
+                        <td>W6</td>
+                        <td>Wrist Supination</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- DEXTERITY -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-header">
+
+                <span>
+                    Finger Dexterity (D1-D5)
+                </span>
+
+                <span class="accordion-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <table>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Task</th>
+                    </tr>
+
+                    <tr>
+                        <td>D1</td>
+                        <td>Sequential Finger Tapping</td>
+                    </tr>
+
+                    <tr>
+                        <td>D2</td>
+                        <td>Thumb ↔ Index</td>
+                    </tr>
+
+                    <tr>
+                        <td>D3</td>
+                        <td>Thumb ↔ Middle</td>
+                    </tr>
+
+                    <tr>
+                        <td>D4</td>
+                        <td>Thumb ↔ Ring</td>
+                    </tr>
+
+                    <tr>
+                        <td>D5</td>
+                        <td>Thumb ↔ Little</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- REACH -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-header">
+
+                <span>
+                    Reach Motions (R1-R4)
+                </span>
+
+                <span class="accordion-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <table>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Task</th>
+                    </tr>
+
+                    <tr>
+                        <td>R1</td>
+                        <td>Reach Forward</td>
+                    </tr>
+
+                    <tr>
+                        <td>R2</td>
+                        <td>Reach Left</td>
+                    </tr>
+
+                    <tr>
+                        <td>R3</td>
+                        <td>Reach Right</td>
+                    </tr>
+
+                    <tr>
+                        <td>R4</td>
+                        <td>Reach Up</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- GRASP -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-header">
+
+                <span>
+                    Grasp Taxonomy (G1-G6)
+                </span>
+
+                <span class="accordion-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <table>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Object</th>
+                    </tr>
+
+                    <tr>
+                        <td>G1</td>
+                        <td>Cube</td>
+                    </tr>
+
+                    <tr>
+                        <td>G2</td>
+                        <td>Ball</td>
+                    </tr>
+
+                    <tr>
+                        <td>G3</td>
+                        <td>Bottle</td>
+                    </tr>
+
+                    <tr>
+                        <td>G4</td>
+                        <td>Mug</td>
+                    </tr>
+
+                    <tr>
+                        <td>G5</td>
+                        <td>Pen</td>
+                    </tr>
+
+                    <tr>
+                        <td>G6</td>
+                        <td>Smartphone</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- MANIPULATION -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-header">
+
+                <span>
+                    Manipulation Tasks (M1-M6)
+                </span>
+
+                <span class="accordion-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <table>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Task</th>
+                    </tr>
+
+                    <tr>
+                        <td>M1</td>
+                        <td>Pick and Place</td>
+                    </tr>
+
+                    <tr>
+                        <td>M2</td>
+                        <td>Move Object A → B</td>
+                    </tr>
+
+                    <tr>
+                        <td>M3</td>
+                        <td>Rotate Bottle</td>
+                    </tr>
+
+                    <tr>
+                        <td>M4</td>
+                        <td>Rotate Cube</td>
+                    </tr>
+
+                    <tr>
+                        <td>M5</td>
+                        <td>Stack Blocks</td>
+                    </tr>
+
+                    <tr>
+                        <td>M6</td>
+                        <td>Insert Object into Slot</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTINUOUS -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-header">
+
+                <span>
+                    Continuous Motion (C1-C4)
+                </span>
+
+                <span class="accordion-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <table>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Task</th>
+                    </tr>
+
+                    <tr>
+                        <td>C1</td>
+                        <td>Random Natural Hand Motion</td>
+                    </tr>
+
+                    <tr>
+                        <td>C2</td>
+                        <td>Random Grasping</td>
+                    </tr>
+
+                    <tr>
+                        <td>C3</td>
+                        <td>Free Object Manipulation</td>
+                    </tr>
+
+                    <tr>
+                        <td>C4</td>
+                        <td>Daily Activity Simulation</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COLLECTION SETUP
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            ACQUISITION
+        </span>
+
+        <h2>Collection Setup</h2>
+
+    </div>
+
+
+    <ul class="setup-list">
+
+        <li>
+            <strong>Device</strong>
+            <span>Rokoko Smartglove</span>
+        </li>
+
+        <li>
+            <strong>Sampling Rate</strong>
+            <span>100 Hz</span>
+        </li>
+
+        <li>
+            <strong>Hand</strong>
+            <span>Right Hand</span>
+        </li>
+
+        <li>
+            <strong>Storage Format</strong>
+            <span>FBX + CSV</span>
+        </li>
+
+        <li>
+            <strong>Motion Capture</strong>
+            <span>Real-time Rokoko Studio</span>
+        </li>
+
+        <li>
+            <strong>Target Applications</strong>
+            <span>
+                Teleoperation, Motion Forecasting, RL
+            </span>
+        </li>
+
+    </ul>
+
+</section>
+
+
+<!-- =====================================================
+     DOWNLOAD
+===================================================== -->
+
+<section id="download" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            RESOURCES
+        </span>
+
+        <h2>Downloads</h2>
+
+    </div>
+
+
+    <div class="download-box">
+
+        <a href="#">
+            Dataset
+        </a>
+
+        <a href="#">
+            Protocol PDF
+        </a>
+
+        <a href="#">
+            Source Code
+        </a>
+
+        <a href="#">
+            Benchmark Scripts
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CITATION
+===================================================== -->
+
+<section id="citation" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            REFERENCE
+        </span>
+
+        <h2>Citation</h2>
+
+    </div>
+
+
+    <pre><code>@dataset{rokokohand44,
+  title={RokokoHand-44},
+  author={Pattiwar, Shravan Kumar and Others},
+  year={2026}
+}</code></pre>
+
+</section>
+
+
+<!-- =====================================================
+     LIGHTBOX
+===================================================== -->
+
+<div id="lightbox">
+
+    <button
+        class="close-btn"
+        onclick="closeLightbox()"
+        aria-label="Close"
+    >
+        &times;
+    </button>
+
+    <img
+        id="lightbox-img"
+        src=""
+        alt="Fullscreen preview"
+    >
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <strong>
+            RokokoHand-44
+        </strong>
+
+        <p>
+            A Large-Scale Hand Motion Dataset
+        </p>
+
+        <span>
+            © 2026 RokokoHand-44 Dataset
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================================
+   LIGHTBOX
+========================================= */
+
+function openLightbox(src) {
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const image =
+        document.getElementById("lightbox-img");
+
+    image.src = src;
+
+    lightbox.classList.add("active");
+
+    document.body.classList.add("no-scroll");
+
+}
+
+
+function closeLightbox() {
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const image =
+        document.getElementById("lightbox-img");
+
+    lightbox.classList.remove("active");
+
+    image.src = "";
+
+    document.body.classList.remove("no-scroll");
+
+}
+
+
+/* =========================================
+   ESCAPE KEY
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   CLOSE LIGHTBOX WHEN CLICKING BACKGROUND
+========================================= */
+
+document
+    .getElementById("lightbox")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+
+/* =========================================
+   ACCORDION
+========================================= */
+
+document
+    .querySelectorAll(".accordion-header")
+    .forEach(function(button) {
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                const item =
+                    this.parentElement;
+
+                const content =
+                    this.nextElementSibling;
+
+                const icon =
+                    this.querySelector(
+                        ".accordion-icon"
+                    );
+
+
+                document
+                    .querySelectorAll(
+                        ".accordion-item"
+                    )
+                    .forEach(function(
+                        otherItem
+                    ) {
+
+                        if (
+                            otherItem !== item
+                        ) {
+
+                            otherItem
+                                .classList
+                                .remove(
+                                    "active"
+                                );
+
+                            otherItem
+                                .querySelector(
+                                    ".accordion-content"
+                                )
+                                .style
+                                .maxHeight =
+                                null;
+
+                            const otherIcon =
+                                otherItem
+                                    .querySelector(
+                                        ".accordion-icon"
+                                    );
+
+                            if (otherIcon) {
+
+                                otherIcon
+                                    .textContent =
+                                    "+";
+
+                            }
+
+                        }
+
+                    });
+
+
+                if (
+                    content.style.maxHeight
+                ) {
+
+                    content.style.maxHeight =
+                        null;
+
+                    item.classList.remove(
+                        "active"
+                    );
+
+                    icon.textContent = "+";
+
+                } else {
+
+                    content.style.maxHeight =
+                        content.scrollHeight +
+                        "px";
+
+                    item.classList.add(
+                        "active"
+                    );
+
+                    icon.textContent = "−";
+
+                }
+
+            }
+        );
+
+    });
+
+</script>
+
+
+</body>
+</html>
