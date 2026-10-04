@@ -2014,6 +2014,50 @@
 
 <script>
 
+	
+document.querySelectorAll(".gif-image img").forEach((img) => {
+  // Mark images that have already loaded successfully.
+  if (img.complete && img.naturalWidth > 0) {
+    img.classList.add("gif-loaded");
+  }
+
+  const container = img.parentElement;
+
+  // Create one retry button for each GIF.
+  let retryButton = container.querySelector(".gif-retry");
+
+  if (!retryButton) {
+    retryButton = document.createElement("button");
+    retryButton.type = "button";
+    retryButton.className = "gif-retry";
+    retryButton.textContent = "Retry loading GIF";
+    container.appendChild(retryButton);
+  }
+
+  img.addEventListener("load", () => {
+    img.classList.add("gif-loaded");
+    img.classList.remove("gif-error");
+    retryButton.classList.remove("visible");
+  });
+
+  img.addEventListener("error", () => {
+    img.classList.remove("gif-loaded");
+    img.classList.add("gif-error");
+    retryButton.classList.add("visible");
+  });
+
+  retryButton.addEventListener("click", () => {
+    img.classList.remove("gif-error", "gif-loaded");
+    retryButton.classList.remove("visible");
+
+    // Re-request the same file from GitHub Pages.
+    const originalSrc = img.getAttribute("src");
+    img.src = "";
+    img.src = originalSrc;
+  });
+});
+
+
 /* =========================================
    LIGHTBOX
 ========================================= */
